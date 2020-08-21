@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Test from '../components/Test'
 import Content, { HTMLContent } from '../components/Content'
 
-export const AboutPageTemplate = ({ title, johnny, content, contentComponent }) => {
+export const AboutPageTemplate = ({ title, name, age, johnny, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -19,6 +20,7 @@ export const AboutPageTemplate = ({ title, johnny, content, contentComponent }) 
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
+              <Test name={name} age={age} />
               <PageContent className="content" content={content} />
             </div>
           </div>
@@ -45,6 +47,8 @@ const AboutPage = ({ data }) => {
         title={post.frontmatter.title}
         johnny={post.frontmatter.johnny}
         content={post.html}
+        name='johnny'
+        age={16}
       />
     </Layout>
   )
